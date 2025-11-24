@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function About() {
   return (
     <>
@@ -76,11 +78,16 @@ export default function About() {
             <div className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/30 overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
               <div className="relative">
-                {/* Photo Placeholder */}
-                <div className="w-32 h-32 rounded-full bg-[#1a1a1a] mx-auto mb-6 flex items-center justify-center group-hover:bg-yellow-400 transition-colors duration-300">
-                  <svg className="w-16 h-16 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
+                <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border border-white/60 shadow-[0_20px_40px_rgba(26,26,26,0.15)]">
+                  <Image
+                    src="/images/jaco nagel (1).jpg"
+                    alt="Portrait of Jaco Nagel"
+                    width={320}
+                    height={320}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="128px"
+                  />
+                  <div className="absolute inset-0 rounded-full ring-2 ring-yellow-400/40 pointer-events-none" />
                 </div>
                 <h3 className="text-2xl font-serif font-bold text-gray-900 mb-2 text-center">Jaco Nagel</h3>
                 <p className="text-yellow-400 font-semibold text-center mb-6">Managing Director</p>
@@ -105,11 +112,16 @@ export default function About() {
             <div className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/30 overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
               <div className="relative">
-                {/* Photo Placeholder */}
-                <div className="w-32 h-32 rounded-full bg-[#1a1a1a] mx-auto mb-6 flex items-center justify-center group-hover:bg-yellow-400 transition-colors duration-300">
-                  <svg className="w-16 h-16 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
+                <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border border-white/60 shadow-[0_20px_40px_rgba(26,26,26,0.15)]">
+                  <Image
+                    src="/images/wayne johnson (1).jpg"
+                    alt="Portrait of Wayne Johnson"
+                    width={320}
+                    height={320}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="128px"
+                  />
+                  <div className="absolute inset-0 rounded-full ring-2 ring-yellow-400/40 pointer-events-none" />
                 </div>
                 <h3 className="text-2xl font-serif font-bold text-gray-900 mb-2 text-center">Wayne Johnson</h3>
                 <p className="text-yellow-400 font-semibold text-center mb-6">Executive Director</p>

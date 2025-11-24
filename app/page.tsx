@@ -2,8 +2,56 @@
 
 import { motion } from 'framer-motion';
 import { ScrollAnimation, StaggerContainer, StaggerItem } from '@/components/scroll-animation';
+import { PillarCard } from '@/components/pillar-card';
 
 export default function Home() {
+  const complianceBadges = [
+    { title: 'B-BBEE', subtitle: 'Level 1' },
+    { title: 'NBCRFLI', subtitle: 'Compliant' },
+    { title: 'Transnet', subtitle: 'Vendor' },
+    { title: 'GIT', subtitle: 'Insured' },
+  ];
+  const marqueeCopies = Array.from({ length: 3 });
+
+  const featurePillars = [
+    {
+      title: 'Reliability',
+      description: '98.5% On-Time-In-Full delivery across South Africa and the Maputo Corridor. Our telemetry-backed fleet keeps every promise you make to your board.',
+      metricLabel: 'OTIF',
+      metricValue: '98.5%',
+      supportingCopy: '300+ loads per month orchestrated with live control-room oversight and predictive maintenance windows.',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+    },
+    {
+      title: 'Integrity',
+      description: 'Full compliance with NBCRFLI, GIT insurance, and Transnet vendor standards. Every document sits in your Compliance Vault before the first load departs.',
+      metricLabel: 'Compliance',
+      metricValue: '100%',
+      supportingCopy: 'Digitized certification trail, automated expiry alerts, and executive access through the Vuyela Compliance Vault.',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      ),
+    },
+    {
+      title: 'Expertise',
+      description: '20+ years of mining-born logistics experience. From abnormal loads to JIT manufacturing runs, we architect the entire risk transfer process.',
+      metricLabel: 'Years',
+      metricValue: '20+',
+      supportingCopy: 'Dedicated route engineers, Maputo Corridor specialists, and an enterprise network of vetted owner-drivers.',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
+    },
+  ];
+
   return (
     <>
       {/* Hero Section */}
@@ -84,83 +132,21 @@ export default function Home() {
       {/* Trust Bar - Animated Badges Loop */}
       <section className="bg-white border-b border-gray-100 overflow-hidden">
         <div className="py-8">
-          {/* Animated Badges - Endless Loop */}
           <div className="relative">
-            <div className="flex items-center animate-truck-scroll">
-              {/* Badges Container - Set 1 */}
-              <div className="flex items-center gap-8 sm:gap-12">
-                {/* B-BBEE Badge */}
-                <div className="flex flex-col items-center space-y-1 flex-shrink-0">
-                  <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider">B-BBEE</div>
-                  <div className="text-xs text-gray-500">Level 1</div>
+            <div className="flex items-center animate-marquee">
+              {marqueeCopies.map((_, copyIndex) => (
+                <div key={copyIndex} className="flex items-center gap-8 sm:gap-12 pr-12">
+                  {complianceBadges.map((badge, idx) => (
+                    <div key={`${badge.title}-${copyIndex}-${idx}`} className="flex items-center gap-8 sm:gap-12 flex-shrink-0">
+                      <div className="flex flex-col items-center space-y-1">
+                        <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider">{badge.title}</div>
+                        <div className="text-xs text-gray-500">{badge.subtitle}</div>
+                      </div>
+                      <div className="w-8 h-0.5 bg-gray-200 opacity-80" />
+                    </div>
+                  ))}
                 </div>
-                
-                {/* Connection Line */}
-                <div className="w-8 h-0.5 bg-gray-300"></div>
-                
-                {/* NBCRFLI Badge */}
-                <div className="flex flex-col items-center space-y-1 flex-shrink-0">
-                  <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider">NBCRFLI</div>
-                  <div className="text-xs text-gray-500">Compliant</div>
-                </div>
-                
-                {/* Connection Line */}
-                <div className="w-8 h-0.5 bg-gray-300"></div>
-                
-                {/* Transnet Badge */}
-                <div className="flex flex-col items-center space-y-1 flex-shrink-0">
-                  <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider">Transnet</div>
-                  <div className="text-xs text-gray-500">Vendor</div>
-                </div>
-                
-                {/* Connection Line */}
-                <div className="w-8 h-0.5 bg-gray-300"></div>
-                
-                {/* GIT Insurance Badge */}
-                <div className="flex flex-col items-center space-y-1 flex-shrink-0">
-                  <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider">GIT</div>
-                  <div className="text-xs text-gray-500">Insured</div>
-                </div>
-              </div>
-              
-              {/* Badges Container - Set 2 (Duplicate for seamless loop) */}
-              <div className="flex items-center gap-8 sm:gap-12 ml-12">
-                {/* Connection Line */}
-                <div className="w-8 h-0.5 bg-gray-300"></div>
-                
-                {/* B-BBEE Badge */}
-                <div className="flex flex-col items-center space-y-1 flex-shrink-0">
-                  <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider">B-BBEE</div>
-                  <div className="text-xs text-gray-500">Level 1</div>
-                </div>
-                
-                {/* Connection Line */}
-                <div className="w-8 h-0.5 bg-gray-300"></div>
-                
-                {/* NBCRFLI Badge */}
-                <div className="flex flex-col items-center space-y-1 flex-shrink-0">
-                  <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider">NBCRFLI</div>
-                  <div className="text-xs text-gray-500">Compliant</div>
-                </div>
-                
-                {/* Connection Line */}
-                <div className="w-8 h-0.5 bg-gray-300"></div>
-                
-                {/* Transnet Badge */}
-                <div className="flex flex-col items-center space-y-1 flex-shrink-0">
-                  <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider">Transnet</div>
-                  <div className="text-xs text-gray-500">Vendor</div>
-                </div>
-                
-                {/* Connection Line */}
-                <div className="w-8 h-0.5 bg-gray-300"></div>
-                
-                {/* GIT Insurance Badge */}
-                <div className="flex flex-col items-center space-y-1 flex-shrink-0">
-                  <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider">GIT</div>
-                  <div className="text-xs text-gray-500">Insured</div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -183,80 +169,11 @@ export default function Home() {
 
           {/* Feature Cards */}
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
-            {/* Reliability Card */}
-            <StaggerItem>
-              <motion.div 
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10"
-                whileHover={{ y: -4, transition: { duration: 0.3 } }}
-              >
-              <div className="mb-8">
-                <div className="w-16 h-16 rounded-full bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
-                  <svg className="w-8 h-8 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Reliability</h3>
-                <p className="text-gray-600 leading-relaxed text-base">
-                  <span className="font-semibold text-[#1a1a1a]">98.5% On-Time-In-Full</span> delivery rate across 300+ monthly loads. Your cargo arrives when promised, every time.
-                </p>
-              </div>
-                <motion.div 
-                  className="absolute bottom-8 left-8 right-8 h-0.5 bg-gray-100"
-                  whileHover={{ backgroundColor: '#facc15' }}
-                  transition={{ duration: 0.3 }}
-                ></motion.div>
-              </motion.div>
-            </StaggerItem>
-
-            {/* Integrity Card */}
-            <StaggerItem>
-              <motion.div 
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10"
-                whileHover={{ y: -4, transition: { duration: 0.3 } }}
-              >
-              <div className="mb-8">
-                <div className="w-16 h-16 rounded-full bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
-                  <svg className="w-8 h-8 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Integrity</h3>
-                <p className="text-gray-600 leading-relaxed text-base">
-                  Full compliance with <span className="font-semibold text-[#1a1a1a]">NBCRFLI, GIT insurance, and Transnet</span> vendor standards. Trust built on transparency and accountability.
-                </p>
-              </div>
-                <motion.div 
-                  className="absolute bottom-8 left-8 right-8 h-0.5 bg-gray-100"
-                  whileHover={{ backgroundColor: '#facc15' }}
-                  transition={{ duration: 0.3 }}
-                ></motion.div>
-              </motion.div>
-            </StaggerItem>
-
-            {/* Expertise Card */}
-            <StaggerItem>
-              <motion.div 
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10"
-                whileHover={{ y: -4, transition: { duration: 0.3 } }}
-              >
-              <div className="mb-8">
-                <div className="w-16 h-16 rounded-full bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
-                  <svg className="w-8 h-8 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Expertise</h3>
-                <p className="text-gray-600 leading-relaxed text-base">
-                  <span className="font-semibold text-[#1a1a1a]">Over 20 years</span> of combined experience in logistics, from one truck to a full fleet operation. Proven track record of excellence.
-                </p>
-              </div>
-                <motion.div 
-                  className="absolute bottom-8 left-8 right-8 h-0.5 bg-gray-100"
-                  whileHover={{ backgroundColor: '#facc15' }}
-                  transition={{ duration: 0.3 }}
-                ></motion.div>
-              </motion.div>
-            </StaggerItem>
+            {featurePillars.map((pillar) => (
+              <StaggerItem key={pillar.title}>
+                <PillarCard {...pillar} />
+              </StaggerItem>
+            ))}
           </StaggerContainer>
         </div>
       </section>
@@ -279,13 +196,13 @@ export default function Home() {
           {/* Services Grid */}
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
             {/* Road Freight */}
-            <StaggerItem>
+            <StaggerItem className="h-full">
               <motion.div 
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden"
+                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden h-full flex flex-col"
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
               >
               <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
-              <div className="relative">
+              <div className="relative flex flex-col h-full">
                 <div className="w-14 h-14 rounded-lg bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
                   <svg className="w-7 h-7 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
@@ -295,7 +212,7 @@ export default function Home() {
                 <p className="text-gray-600 leading-relaxed text-base mb-4">
                   Specialized bulk and break-bulk transportation with side tippers and tautliners. Reliable delivery across South Africa and beyond.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-500">
+                <ul className="space-y-2 text-sm text-gray-500 mt-auto">
                   <li className="flex items-start">
                     <span className="text-yellow-400 mr-2">•</span>
                     <span>Bulk Commodities</span>
@@ -314,13 +231,13 @@ export default function Home() {
             </StaggerItem>
 
             {/* Global Trade Services */}
-            <StaggerItem>
+            <StaggerItem className="h-full">
               <motion.div 
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden"
+                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden h-full flex flex-col"
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
               >
               <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
-              <div className="relative">
+              <div className="relative flex flex-col h-full">
                 <div className="w-14 h-14 rounded-lg bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
                   <svg className="w-7 h-7 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -330,7 +247,7 @@ export default function Home() {
                 <p className="text-gray-600 leading-relaxed text-base mb-4">
                   Expert import/export management and clearing services. Specialized expertise in the Maputo Corridor for seamless cross-border trade.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-500">
+                <ul className="space-y-2 text-sm text-gray-500 mt-auto">
                   <li className="flex items-start">
                     <span className="text-yellow-400 mr-2">•</span>
                     <span>Import/Export Management</span>
@@ -349,13 +266,13 @@ export default function Home() {
             </StaggerItem>
 
             {/* Supply Chain Outsourcing */}
-            <StaggerItem>
+            <StaggerItem className="h-full">
               <motion.div 
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden"
+                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden h-full flex flex-col"
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
               >
               <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
-              <div className="relative">
+              <div className="relative flex flex-col h-full">
                 <div className="w-14 h-14 rounded-lg bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
                   <svg className="w-7 h-7 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -365,7 +282,7 @@ export default function Home() {
                 <p className="text-gray-600 leading-relaxed text-base mb-4">
                   Complete fleet management and Just-In-Time (JIT) solutions. Optimize your operations with our integrated supply chain expertise.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-500">
+                <ul className="space-y-2 text-sm text-gray-500 mt-auto">
                   <li className="flex items-start">
                     <span className="text-yellow-400 mr-2">•</span>
                     <span>Fleet Management</span>
@@ -384,13 +301,13 @@ export default function Home() {
             </StaggerItem>
 
             {/* Project Cargo */}
-            <StaggerItem>
+            <StaggerItem className="h-full">
               <motion.div 
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden"
+                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden h-full flex flex-col"
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
               >
               <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
-              <div className="relative">
+              <div className="relative flex flex-col h-full">
                 <div className="w-14 h-14 rounded-lg bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
                   <svg className="w-7 h-7 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
@@ -400,7 +317,7 @@ export default function Home() {
                 <p className="text-gray-600 leading-relaxed text-base mb-4">
                   Specialized handling of abnormal loads and oversized cargo. Expert coordination for complex project logistics.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-500">
+                <ul className="space-y-2 text-sm text-gray-500 mt-auto">
                   <li className="flex items-start">
                     <span className="text-yellow-400 mr-2">•</span>
                     <span>Abnormal Loads</span>
@@ -497,11 +414,11 @@ export default function Home() {
             {/* FMCG & Retail */}
             <StaggerItem>
               <motion.div 
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden"
+                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden h-full flex flex-col"
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
               >
               <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
-              <div className="relative">
+              <div className="relative flex flex-col h-full">
                 <div className="w-14 h-14 rounded-lg bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
                   <svg className="w-7 h-7 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -511,7 +428,7 @@ export default function Home() {
                 <p className="text-gray-600 leading-relaxed text-base mb-4">
                   Efficient distribution networks for fast-moving consumer goods. Reliable supply chain solutions for retail operations.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-500 mb-6">
+                <ul className="space-y-2 text-sm text-gray-500 mb-6 mt-auto">
                   <li className="flex items-start">
                     <span className="text-yellow-400 mr-2">•</span>
                     <span>Distribution Networks</span>
@@ -541,11 +458,11 @@ export default function Home() {
             {/* Agriculture */}
             <StaggerItem>
               <motion.div 
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden"
+                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden h-full flex flex-col"
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
               >
               <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
-              <div className="relative">
+              <div className="relative flex flex-col h-full">
                 <div className="w-14 h-14 rounded-lg bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
                   <svg className="w-7 h-7 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -555,7 +472,7 @@ export default function Home() {
                 <p className="text-gray-600 leading-relaxed text-base mb-4">
                   Specialized transport for agricultural products. Temperature-controlled and time-sensitive solutions for fresh produce.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-500 mb-6">
+                <ul className="space-y-2 text-sm text-gray-500 mb-6 mt-auto">
                   <li className="flex items-start">
                     <span className="text-yellow-400 mr-2">•</span>
                     <span>Produce Transport</span>
@@ -585,11 +502,11 @@ export default function Home() {
             {/* Construction & Infrastructure */}
             <StaggerItem>
               <motion.div 
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden"
+                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden h-full flex flex-col"
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
               >
               <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
-              <div className="relative">
+              <div className="relative flex flex-col h-full">
                 <div className="w-14 h-14 rounded-lg bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
                   <svg className="w-7 h-7 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -599,7 +516,7 @@ export default function Home() {
                 <p className="text-gray-600 leading-relaxed text-base mb-4">
                   Heavy equipment and material transport for construction projects. Specialized solutions for infrastructure development.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-500 mb-6">
+                <ul className="space-y-2 text-sm text-gray-500 mb-6 mt-auto">
                   <li className="flex items-start">
                     <span className="text-yellow-400 mr-2">•</span>
                     <span>Heavy Equipment Transport</span>
