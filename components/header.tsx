@@ -1,13 +1,34 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
+  // Ensure component is mounted before using portal
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const navLinks = [
     { href: '/', label: 'Home' },
@@ -35,7 +56,7 @@ export default function Header() {
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white min-w-[44px] min-h-[44px]"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors cursor-pointer z-[10000] relative"
             onClick={toggleMenu}
             aria-expanded={isMenuOpen}
             aria-label="Toggle menu"
@@ -72,22 +93,23 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
-      {isMenuOpen && (
-        <>
+      {/* Mobile menu - rendered via portal to ensure it's above everything */}
+      {mounted && isMenuOpen && createPortal(
+        <div className="lg:hidden fixed inset-0 z-[99999]">
           {/* Backdrop */}
           <div 
-            className="fixed inset-0 z-[9998] bg-black/50 lg:hidden" 
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm" 
             onClick={toggleMenu}
             aria-hidden="true"
           ></div>
           
           {/* Mobile menu panel */}
           <div 
-            className="fixed inset-y-0 right-0 z-[9999] w-full max-w-sm overflow-y-auto bg-[#1a1a1a] px-6 py-6 lg:hidden" 
+            className="fixed inset-y-0 right-0 w-full max-w-sm overflow-y-auto bg-[#1a1a1a] px-6 py-6 shadow-2xl"
             role="dialog" 
             aria-modal="true"
             aria-label="Navigation menu"
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Mobile menu header */}
             <div className="flex items-center justify-between mb-8">
@@ -132,7 +154,8 @@ export default function Header() {
               </Link>
             </div>
           </div>
-        </>
+        </div>,
+        document.body
       )}
     </header>
   );
