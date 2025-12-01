@@ -250,9 +250,35 @@ export default function About() {
                     <p className="text-white/80 leading-relaxed text-lg mb-4">
                       During the KwaZulu-Natal unrest, when communities were in crisis, Vuyela Logistics mobilized immediately. We transported 3,000 food parcels to those in need, operating in challenging conditions to ensure essential supplies reached families across the region.
                     </p>
-                    <p className="text-white/70 leading-relaxed">
+                    <p className="text-white/70 leading-relaxed mb-6">
                       This operation demonstrated not just our fleet capacity and rapid response capability, but our fundamental commitment to being a pillar of community resilience. We don&apos;t just move cargo—we move hope, we move support, and we move forward, together.
                     </p>
+                  </div>
+                </div>
+                
+                {/* Community Project Images Gallery */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                  <div className="relative rounded-xl overflow-hidden border border-white/10 group">
+                    <Image
+                      src="/images/comunity project 01.png"
+                      alt="Vuyela Logistics community project - Food parcel distribution during KZN unrest"
+                      width={800}
+                      height={600}
+                      className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <div className="relative rounded-xl overflow-hidden border border-white/10 group">
+                    <Image
+                      src="/images/comunity project 02.png"
+                      alt="Vuyela Logistics community project - Delivering hope and support to communities in need"
+                      width={800}
+                      height={600}
+                      className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 </div>
               </div>

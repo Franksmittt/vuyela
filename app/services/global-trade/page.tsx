@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function GlobalTrade() {
   return (
@@ -63,19 +64,58 @@ export default function GlobalTrade() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 Strategic alternative to Durban port congestion. Our proven track record in efficient cross-border operations through Mozambique makes us the preferred partner for Maputo Corridor logistics.
               </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-6">
                 <li>N4 route expertise and optimization</li>
                 <li>Komatipoort/Ressano Garcia border crossing</li>
                 <li>Mozambique documentation and compliance</li>
                 <li>Faster transit times vs. traditional routes</li>
               </ul>
+              
+              {/* Strategic Planning Image */}
+              <div className="relative rounded-xl overflow-hidden border border-gray-200 group mb-8">
+                <Image
+                  src="/images/planning.png"
+                  alt="Vuyela Logistics strategic route planning - Maputo Corridor expertise"
+                  width={1200}
+                  height={600}
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 100vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
             </div>
 
             <div>
               <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">Cross-Border Road Freight</h2>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 Specialized expertise in key trade corridors: N1 (Zimbabwe/Zambia), N4 (Mozambique), and N3 (Durban Export routes). Full compliance with SADC trade regulations and documentation requirements.
               </p>
+              
+              {/* Cross-Border Images */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div className="relative rounded-xl overflow-hidden border border-gray-200 group">
+                  <Image
+                    src="/images/border.png"
+                    alt="Vuyela Logistics cross-border operations - SADC trade route expertise"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="relative rounded-xl overflow-hidden border border-gray-200 group">
+                  <Image
+                    src="/images/border 2.png"
+                    alt="Vuyela Logistics border crossing operations - Efficient cross-border logistics"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              </div>
             </div>
 
             <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function RoadFreight() {
   return (
@@ -64,12 +65,38 @@ export default function RoadFreight() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 Palletized goods and industrial equipment transport using tautliners (curtain siders) and flat decks. Ideal for FMCG, retail distribution, and containerized cargo.
               </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-6">
                 <li>Tautliners (curtain siders) for palletized goods</li>
                 <li>Flat decks for containerized or abnormal loads</li>
                 <li>Temperature-controlled options available</li>
                 <li>Flexible scheduling and routing</li>
               </ul>
+              
+              {/* Warehouse Loading Images */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div className="relative rounded-xl overflow-hidden border border-gray-200 group">
+                  <Image
+                    src="/images/warehouse loading.png"
+                    alt="Vuyela Logistics warehouse loading operations - Efficient cargo handling"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="relative rounded-xl overflow-hidden border border-gray-200 group">
+                  <Image
+                    src="/images/warehouse loading 2.png"
+                    alt="Vuyela Logistics warehouse operations - Professional loading and distribution"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              </div>
             </div>
 
             <div>

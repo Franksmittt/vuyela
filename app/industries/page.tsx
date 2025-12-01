@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Industries() {
   return (
     <>
@@ -81,6 +83,32 @@ export default function Industries() {
               </div>
             </div>
 
+            {/* Mining Images Gallery */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+              <div className="relative rounded-xl overflow-hidden border border-gray-200 group">
+                <Image
+                  src="/images/mining.png"
+                  alt="Vuyela Logistics mining operations - Bulk commodity transport"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <div className="relative rounded-xl overflow-hidden border border-gray-200 group">
+                <Image
+                  src="/images/mining 2.png"
+                  alt="Vuyela Logistics mining logistics - Specialized bulk transport solutions"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            </div>
+
             <div className="bg-gray-50 rounded-2xl p-8 lg:p-10 border border-gray-200">
               <h3 className="text-2xl font-serif font-bold text-gray-900 mb-6">Why Mining Companies Choose Us</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -161,6 +189,32 @@ export default function Industries() {
                   <h3 className="font-semibold text-gray-900 mb-2 text-lg">Warehouse Solutions</h3>
                   <p className="text-gray-600 leading-relaxed">Integrated warehouse and distribution services. Cross-docking, inventory management, and fulfillment solutions tailored to your needs.</p>
                 </div>
+              </div>
+            </div>
+
+            {/* FMCG & Retail Images Gallery */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+              <div className="relative rounded-xl overflow-hidden border border-gray-200 group">
+                <Image
+                  src="/images/FMCG & Retail 1.jpg"
+                  alt="Vuyela Logistics FMCG & Retail distribution - Fast-moving consumer goods logistics"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <div className="relative rounded-xl overflow-hidden border border-gray-200 group">
+                <Image
+                  src="/images/FMCG & Retail 2.png"
+                  alt="Vuyela Logistics retail logistics - Efficient distribution networks for retail operations"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </div>
 

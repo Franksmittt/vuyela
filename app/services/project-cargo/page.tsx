@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ProjectCargo() {
   return (
@@ -50,12 +51,38 @@ export default function ProjectCargo() {
               <p className="text-gray-700 leading-relaxed mb-4">
                 Expert handling of oversized and overweight cargo requiring special permits, route planning, and escort coordination. We manage all regulatory requirements and ensure safe transport.
               </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4">
+              <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-6">
                 <li>Oversized and overweight cargo handling</li>
                 <li>Special permit management</li>
                 <li>Route planning and surveys</li>
                 <li>Escort coordination</li>
               </ul>
+              
+              {/* Abnormal Load Images */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div className="relative rounded-xl overflow-hidden border border-gray-200 group">
+                  <Image
+                    src="/images/abnormalload.png"
+                    alt="Vuyela Logistics abnormal load transport - Specialized oversized cargo handling"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="relative rounded-xl overflow-hidden border border-gray-200 group">
+                  <Image
+                    src="/images/abnormal.png"
+                    alt="Vuyela Logistics abnormal load operations - Heavy equipment transport"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              </div>
             </div>
 
             <div>

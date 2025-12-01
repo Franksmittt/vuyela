@@ -74,52 +74,65 @@ export default function Header() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="lg:hidden" role="dialog" aria-modal="true">
-          <div className="fixed inset-0 z-50 bg-black/50" onClick={toggleMenu}></div>
-          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#1a1a1a] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-800">
-            <div className="flex items-center justify-between">
+        <>
+          {/* Backdrop */}
+          <div 
+            className="fixed inset-0 z-[9998] bg-black/50 lg:hidden" 
+            onClick={toggleMenu}
+            aria-hidden="true"
+          ></div>
+          
+          {/* Mobile menu panel */}
+          <div 
+            className="fixed inset-y-0 right-0 z-[9999] w-full max-w-sm overflow-y-auto bg-[#1a1a1a] px-6 py-6 lg:hidden" 
+            role="dialog" 
+            aria-modal="true"
+            aria-label="Navigation menu"
+          >
+            {/* Mobile menu header */}
+            <div className="flex items-center justify-between mb-8">
               <Link href="/" className="-m-1.5 p-1.5" onClick={toggleMenu}>
-                <span className="text-xl font-bold">
+                <span className="text-xl font-serif font-bold tracking-tight">
                   <span className="text-white">Vuyela</span>{' '}
                   <span className="text-yellow-400">Logistics</span>
                 </span>
               </Link>
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-white min-w-[44px] min-h-[44px]"
+                className="-m-2.5 rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors"
                 onClick={toggleMenu}
                 aria-label="Close menu"
               >
                 <X className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-800">
-                <div className="space-y-2 py-6">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800 transition-colors"
-                      onClick={toggleMenu}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-                <div className="py-6">
-                  <Link
-                    href="/quote"
-                    className="block w-full rounded-md bg-yellow-400 px-4 py-2 text-center text-sm font-semibold text-[#1a1a1a] shadow-sm transition-colors hover:bg-yellow-300"
-                    onClick={toggleMenu}
-                  >
-                    Get a Quote
-                  </Link>
-                </div>
-              </div>
+            
+            {/* Navigation links */}
+            <nav className="space-y-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block rounded-lg px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-yellow-400 transition-colors"
+                  onClick={toggleMenu}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+            
+            {/* CTA Button */}
+            <div className="mt-8 pt-6 border-t border-gray-800">
+              <Link
+                href="/quote"
+                className="block w-full rounded-md bg-yellow-400 px-4 py-3 text-center text-sm font-semibold text-[#1a1a1a] shadow-sm transition-colors hover:bg-yellow-300"
+                onClick={toggleMenu}
+              >
+                Get a Quote
+              </Link>
             </div>
           </div>
-        </div>
+        </>
       )}
     </header>
   );

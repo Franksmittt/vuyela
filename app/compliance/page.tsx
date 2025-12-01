@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Compliance() {
   return (
     <>
@@ -100,7 +102,17 @@ export default function Compliance() {
               </div>
               <h3 className="text-2xl font-serif font-bold text-gray-900 mb-2">RtMS Accredited</h3>
               <p className="text-gray-600 text-sm mb-4">Road Transport Management System</p>
-              <p className="text-gray-500 text-xs">Accredited fleet management system ensuring load optimization, driver wellness, and vehicle maintenance standards.</p>
+              <p className="text-gray-500 text-xs mb-4">Accredited fleet management system ensuring load optimization, driver wellness, and vehicle maintenance standards.</p>
+              <div className="relative rounded-lg overflow-hidden border border-gray-200 mt-4">
+                <Image
+                  src="/images/rtmscompliance.png"
+                  alt="Vuyela Logistics RtMS compliance certification - Road Transport Management System"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-cover"
+                  sizes="(max-width: 768px) 100vw, 300px"
+                />
+              </div>
             </div>
 
             {/* Tax Clearance */}
