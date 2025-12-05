@@ -30,11 +30,11 @@ export default function Footer() {
               <Link href="/" className="inline-block mb-6">
                 <span className="text-2xl font-serif font-bold">
                   <span className="text-white">Vuyela</span>{' '}
-                  <span className="text-yellow-400">Logistics</span>
+                  <span className="text-yellow-400">Group</span>
                 </span>
               </Link>
               <p className="text-white/70 text-sm leading-relaxed mb-6">
-                Locally Invested, Globally Connected. Crafting seamless supply chain solutions with precision, integrity, and unwavering commitment to excellence.
+                Vuyela Group - Locally Invested, Globally Connected. Comprehensive logistics solutions through Vuyela Logistics, Vuyela Bulk, Vuyela Freight, and Vuyela Refuel.
               </p>
               {/* Compliance Badges */}
               <div className="space-y-2">
@@ -121,7 +121,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white/60 text-sm text-center md:text-left">
-              © {currentYear} Vuyela Logistics (Pty) Ltd. All rights reserved.
+              © {currentYear} Vuyela Group. All rights reserved.
             </div>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <Link

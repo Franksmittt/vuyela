@@ -158,6 +158,128 @@ export default function Compliance() {
         </div>
       </section>
 
+      {/* SOLAS VGM Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-12 text-center">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
+                SOLAS VGM Compliance
+              </h2>
+              <div className="h-1 w-24 bg-yellow-400 mx-auto mb-8"></div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 lg:p-10 border border-gray-200 mb-8">
+              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Understanding SOLAS VGM (Verified Gross Mass)</h3>
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                Since July 1, 2016, the International Maritime Organization (IMO) has enforced SOLAS VGM regulations. This mandates that the weight of every packed export container must be verified before it can be loaded onto a ship. This was introduced to prevent stack collapses and vessel instability caused by overweight containers.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                <strong className="text-gray-900">No VGM, No Load</strong>—we ensure you never face that risk.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 lg:p-10 border border-gray-200">
+              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-6">How Vuyela Complies</h3>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="w-12 h-12 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center mr-4 flex-shrink-0">
+                    <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Method 1 Weighing</h4>
+                    <p className="text-gray-600 leading-relaxed">
+                      Vuyela employs Method 1 weighing (weighing the packed and sealed container) using our SOLAS-certified weighbridges in Elandsfontein. We generate the VGM certificate on your behalf, ensuring seamless acceptance at the port terminal.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-12 h-12 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center mr-4 flex-shrink-0">
+                    <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">SOLAS-Certified Weighbridges</h4>
+                    <p className="text-gray-600 leading-relaxed">
+                      Our on-site weighbridges are SOLAS certified, ensuring that every export container leaves our yard with a Verified Gross Mass (VGM). This prevents costly delays at the port and ensures compliance with international maritime safety regulations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bonded Warehouse Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-12 text-center">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
+                SARS Bonded Warehouse
+              </h2>
+              <div className="h-1 w-24 bg-yellow-400 mx-auto mb-8"></div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 lg:p-10 border border-gray-200 mb-8">
+              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">What is a Bonded Warehouse?</h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                A customs and excise storage warehouse (Bond Store) is a secured facility where dutiable goods can be stored without the immediate payment of import duties and VAT. Vuyela operates a SARS-registered Bond Facility, offering importers significant strategic advantages.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-2xl p-6 border border-gray-200">
+                <div className="w-12 h-12 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Cash Flow Relief</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  You can import goods and defer duty payments for up to two years. You only pay the duty when you remove the goods for local consumption.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 border border-gray-200">
+                <div className="w-12 h-12 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Re-Export Flexibility</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  If you import goods into South Africa destined for re-export to neighboring countries, storing them in our Bond Store means you never pay SA duties, avoiding the complex and lengthy duty drawback process.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 border border-gray-200">
+                <div className="w-12 h-12 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Secure Storage</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Your bonded cargo is held in a strictly controlled, secure environment under the supervision of our customs experts, with full yard camera coverage and strict access control.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 lg:p-10 border border-gray-200 mt-8">
+              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Just-in-Time Inventory</h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Import bulk stock when exchange rates are favorable, hold it in our bond store, and draw it down only as your customers order it. This strategic approach optimizes cash flow and reduces inventory carrying costs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact for Certificates */}
       <section className="py-16 sm:py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">

@@ -63,13 +63,13 @@ export default function RoadFreight() {
             <div>
               <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">Break-Bulk Transport</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Palletized goods and industrial equipment transport using tautliners (curtain siders) and flat decks. Ideal for FMCG, retail distribution, and containerized cargo.
+                Palletized goods and industrial equipment transport using tautliners (curtain siders) and flat decks for containerized or abnormal loads.
               </p>
               <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-6">
                 <li>Tautliners (curtain siders) for palletized goods</li>
                 <li>Flat decks for containerized or abnormal loads</li>
-                <li>Temperature-controlled options available</li>
                 <li>Flexible scheduling and routing</li>
+                <li>Industrial equipment transport</li>
               </ul>
               
               {/* Warehouse Loading Images */}

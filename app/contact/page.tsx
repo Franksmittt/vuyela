@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -97,8 +98,22 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Physical Address</h3>
+                    <p className="text-gray-600">Main Reef Road, Elandsfontein</p>
+                    <p className="text-gray-600">Gauteng, South Africa</p>
+                  </div>
+                </div>
+
+                {/* Company Registration */}
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 rounded-lg bg-[#1a1a1a] flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Registration</h3>
-                    <p className="text-gray-600">Vuyela Logistics (Pty) Ltd</p>
+                    <p className="text-gray-600">Vuyela Group</p>
                     <p className="text-gray-600">Reg No: K2019/377070/07</p>
                   </div>
                 </div>
@@ -259,8 +274,285 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Meet the Team Section */}
       <section className="py-16 sm:py-24 lg:py-32 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
+              Meet the Team
+            </h2>
+            <div className="h-1 w-24 bg-yellow-400 mx-auto mb-8"></div>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Our dedicated team is here to support your logistics needs. Reach out to the right person for your inquiry.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 max-w-7xl mx-auto">
+            {/* Wayne - Executive Director */}
+            <div className="group relative bg-white border border-gray-200 rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/30 overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
+              <div className="relative">
+                <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border border-gray-200 bg-gray-100 flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span className="text-2xl font-serif font-bold text-gray-400">W</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-1 text-center">Wayne Johnson</h3>
+                <p className="text-yellow-400 font-semibold text-sm text-center mb-4">Executive Director</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-center">
+                    <a href="tel:+27730309679" className="text-gray-600 hover:text-yellow-400 transition-colors">
+                      +27 73 030 9679
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <a href="mailto:wayne@vuyelalogistics.co.za" className="text-gray-600 hover:text-yellow-400 transition-colors text-xs break-all">
+                      wayne@vuyelalogistics.co.za
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Jaco - Managing Director */}
+            <div className="group relative bg-white border border-gray-200 rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/30 overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
+              <div className="relative">
+                <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border border-gray-200 bg-gray-100 flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span className="text-2xl font-serif font-bold text-gray-400">J</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-1 text-center">Jaco Nagel</h3>
+                <p className="text-yellow-400 font-semibold text-sm text-center mb-4">Managing Director</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-center">
+                    <a href="tel:+27724059931" className="text-gray-600 hover:text-yellow-400 transition-colors">
+                      +27 72 405 9931
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <a href="mailto:jaco@vuyelalogistics.co.za" className="text-gray-600 hover:text-yellow-400 transition-colors text-xs break-all">
+                      jaco@vuyelalogistics.co.za
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Melissa - Accounts */}
+            <div className="group relative bg-white border border-gray-200 rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/30 overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
+              <div className="relative">
+                <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border border-gray-200 bg-gray-100 flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span className="text-2xl font-serif font-bold text-gray-400">M</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-1 text-center">Melissa</h3>
+                <p className="text-yellow-400 font-semibold text-sm text-center mb-4">Accounts</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-center">
+                    <a href="tel:+27785924123" className="text-gray-600 hover:text-yellow-400 transition-colors">
+                      +27 78 592 4123
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <a href="mailto:accounts@vuyelalogistics.co.za" className="text-gray-600 hover:text-yellow-400 transition-colors text-xs break-all">
+                      accounts@vuyelalogistics.co.za
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Verushka - Admin */}
+            <div className="group relative bg-white border border-gray-200 rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/30 overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
+              <div className="relative">
+                <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border border-gray-200 bg-gray-100 flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span className="text-2xl font-serif font-bold text-gray-400">V</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-1 text-center">Verushka</h3>
+                <p className="text-yellow-400 font-semibold text-sm text-center mb-4">Admin</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-center">
+                    <a href="tel:+27824578760" className="text-gray-600 hover:text-yellow-400 transition-colors">
+                      +27 82 457 8760
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <a href="mailto:admin@vuyelalogistics.co.za" className="text-gray-600 hover:text-yellow-400 transition-colors text-xs break-all">
+                      admin@vuyelalogistics.co.za
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Mala */}
+            <div className="group relative bg-white border border-gray-200 rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/30 overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
+              <div className="relative">
+                <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border border-gray-200 bg-gray-100 flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span className="text-2xl font-serif font-bold text-gray-400">M</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-1 text-center">Mala</h3>
+                <p className="text-yellow-400 font-semibold text-sm text-center mb-4">Team Member</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-center">
+                    <a href="tel:+27734900317" className="text-gray-600 hover:text-yellow-400 transition-colors">
+                      +27 73 490 0317
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <a href="mailto:mala@vuyelalogistics.co.za" className="text-gray-600 hover:text-yellow-400 transition-colors text-xs break-all">
+                      mala@vuyelalogistics.co.za
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Martin - Shipping */}
+            <div className="group relative bg-white border border-gray-200 rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/30 overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
+              <div className="relative">
+                <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border border-gray-200 bg-gray-100 flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span className="text-2xl font-serif font-bold text-gray-400">M</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-1 text-center">Martin</h3>
+                <p className="text-yellow-400 font-semibold text-sm text-center mb-4">Shipping</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-center">
+                    <a href="tel:+27678818419" className="text-gray-600 hover:text-yellow-400 transition-colors">
+                      +27 67 881 8419
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <a href="mailto:shipping@vuyelalogistics.co.za" className="text-gray-600 hover:text-yellow-400 transition-colors text-xs break-all">
+                      shipping@vuyelalogistics.co.za
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Aneri */}
+            <div className="group relative bg-white border border-gray-200 rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/30 overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
+              <div className="relative">
+                <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border border-gray-200 bg-gray-100 flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span className="text-2xl font-serif font-bold text-gray-400">A</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-1 text-center">Aneri</h3>
+                <p className="text-yellow-400 font-semibold text-sm text-center mb-4">Team Member</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-center">
+                    <a href="tel:+27826709214" className="text-gray-600 hover:text-yellow-400 transition-colors">
+                      +27 82 670 9214
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <a href="mailto:aneri@vuyelalogistics.co.za" className="text-gray-600 hover:text-yellow-400 transition-colors text-xs break-all">
+                      aneri@vuyelalogistics.co.za
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Karina */}
+            <div className="group relative bg-white border border-gray-200 rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/30 overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
+              <div className="relative">
+                <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border border-gray-200 bg-gray-100 flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span className="text-2xl font-serif font-bold text-gray-400">K</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-1 text-center">Karina Rossouw</h3>
+                <p className="text-yellow-400 font-semibold text-sm text-center mb-4">Team Member</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-center">
+                    <a href="tel:+27833495467" className="text-gray-600 hover:text-yellow-400 transition-colors">
+                      +27 83 349 5467
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <a href="mailto:karina.rossouw@vuyelalogistics.co.za" className="text-gray-600 hover:text-yellow-400 transition-colors text-xs break-all">
+                      karina.rossouw@vuyelalogistics.co.za
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Mike */}
+            <div className="group relative bg-white border border-gray-200 rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/30 overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
+              <div className="relative">
+                <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border border-gray-200 bg-gray-100 flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span className="text-2xl font-serif font-bold text-gray-400">M</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-1 text-center">Mike</h3>
+                <p className="text-yellow-400 font-semibold text-sm text-center mb-4">Team Member</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-center">
+                    <a href="tel:+27628488623" className="text-gray-600 hover:text-yellow-400 transition-colors">
+                      +27 62 848 8623
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <a href="mailto:mike@vuyelalogistics.co.za" className="text-gray-600 hover:text-yellow-400 transition-colors text-xs break-all">
+                      mike@vuyelalogistics.co.za
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Deon - Refuel */}
+            <div className="group relative bg-white border border-gray-200 rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/30 overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
+              <div className="relative">
+                <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border border-gray-200 bg-gray-100 flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <span className="text-2xl font-serif font-bold text-gray-400">D</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-gray-900 mb-1 text-center">Deon</h3>
+                <p className="text-yellow-400 font-semibold text-sm text-center mb-4">Refuel</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-center">
+                    <a href="tel:+27672090841" className="text-gray-600 hover:text-yellow-400 transition-colors">
+                      +27 67 209 0841
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <a href="mailto:refuel@vuyelalogistics.co.za" className="text-gray-600 hover:text-yellow-400 transition-colors text-xs break-all">
+                      refuel@vuyelalogistics.co.za
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="max-w-4xl mx-auto text-center">
             <div className="space-y-8">

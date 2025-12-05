@@ -439,15 +439,17 @@ export default function Network() {
                 </div>
 
                 <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                  <p className="text-sm text-gray-700">
-                    <strong className="text-gray-900">Note:</strong> After submitting this application, you will be contacted to provide additional documentation including:
+                  <div className="text-sm text-gray-700">
+                    <p className="mb-2">
+                      <strong className="text-gray-900">Note:</strong> After submitting this application, you will be contacted to provide additional documentation including:
+                    </p>
                     <ul className="list-disc list-inside mt-2 space-y-1 text-gray-600">
                       <li>Vehicle registration papers</li>
                       <li>Driver&apos;s license</li>
                       <li>Insurance documentation</li>
                       <li>Company registration (if applicable)</li>
                     </ul>
-                  </p>
+                  </div>
                 </div>
 
                 <button

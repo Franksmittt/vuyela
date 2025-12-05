@@ -47,7 +47,7 @@ export default function Header() {
           <Link href="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
             <span className="text-xl md:text-2xl font-serif font-bold tracking-tight">
               <span className="text-white">Vuyela</span>{' '}
-              <span className="text-yellow-400">Logistics</span>
+              <span className="text-yellow-400">Group</span>
             </span>
           </Link>
         </div>
@@ -113,12 +113,12 @@ export default function Header() {
           >
             {/* Mobile menu header */}
             <div className="flex items-center justify-between mb-8">
-              <Link href="/" className="-m-1.5 p-1.5" onClick={toggleMenu}>
-                <span className="text-xl font-serif font-bold tracking-tight">
-                  <span className="text-white">Vuyela</span>{' '}
-                  <span className="text-yellow-400">Logistics</span>
-                </span>
-              </Link>
+                  <Link href="/" className="-m-1.5 p-1.5" onClick={toggleMenu}>
+                    <span className="text-xl font-serif font-bold tracking-tight">
+                      <span className="text-white">Vuyela</span>{' '}
+                      <span className="text-yellow-400">Group</span>
+                    </span>
+                  </Link>
               <button
                 type="button"
                 className="-m-2.5 rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors"

@@ -18,8 +18,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Vuyela Logistics - Locally Invested, Globally Connected',
-  description: 'Professional logistics and supply chain solutions across South Africa and beyond.',
+  title: 'Vuyela Group - Locally Invested, Globally Connected',
+  description: 'Vuyela Group provides comprehensive logistics solutions through Vuyela Logistics, Vuyela Bulk, Vuyela Freight, and Vuyela Refuel. Professional supply chain management across South Africa and beyond.',
   metadataBase: new URL('https://vuyelalogistics.co.za'),
 };
 
