@@ -28,7 +28,7 @@ export default function Privacy() {
       </section>
 
       {/* Privacy Policy Content */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <div className="prose prose-lg max-w-none">
             <div className="mb-12">

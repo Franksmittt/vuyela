@@ -53,10 +53,10 @@ export default function Services() {
       </section>
 
       {/* Services Overview Grid */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <ScrollAnimation>
-            <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
                 Comprehensive Service Portfolio
               </h2>
@@ -67,7 +67,7 @@ export default function Services() {
             </div>
           </ScrollAnimation>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
             {[
               {
                 title: 'Bulk Warehousing & Handling',
@@ -132,21 +132,21 @@ export default function Services() {
             ].map((service) => (
               <StaggerItem key={service.title}>
                 <motion.div 
-                  className="group relative bg-white border-2 border-gray-200 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/50 overflow-hidden h-full"
+                  className="group relative bg-white border-2 border-gray-200 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/50 overflow-hidden h-full flex flex-col"
                   whileHover={{ y: -6 }}
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
-                  <div className="relative">
+                  <div className="relative flex flex-col h-full">
                     <div className="w-16 h-16 rounded-2xl bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300 text-white group-hover:text-[#1a1a1a]">
                       {service.icon}
                     </div>
                     <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">{service.title}</h3>
-                    <p className="text-gray-600 leading-relaxed mb-6">
+                    <p className="text-gray-600 leading-relaxed mb-6 flex-1">
                       {service.description}
                     </p>
                     <Link 
                       href={service.link}
-                      className="inline-flex items-center text-[#1a1a1a] font-semibold group-hover:text-yellow-400 transition-colors duration-300"
+                      className="inline-flex items-center text-[#1a1a1a] font-semibold group-hover:text-yellow-400 transition-colors duration-300 mt-auto"
                     >
                       Learn More
                       <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,11 +162,11 @@ export default function Services() {
       </section>
 
       {/* Vuyela Bulk Section */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="max-w-5xl mx-auto">
             <ScrollAnimation>
-              <div className="text-center mb-16">
+              <div className="text-center mb-8 sm:mb-12">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 mb-6">
                   <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
@@ -257,11 +257,11 @@ export default function Services() {
       </section>
 
       {/* Lead Logistics Provider Section */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="max-w-5xl mx-auto">
             <ScrollAnimation>
-              <div className="text-center mb-16">
+              <div className="text-center mb-8 sm:mb-12">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 mb-6">
                   <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -329,11 +329,11 @@ export default function Services() {
       </section>
 
       {/* Rail Operations Management Section */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="max-w-5xl mx-auto">
             <ScrollAnimation>
-              <div className="text-center mb-16">
+              <div className="text-center mb-8 sm:mb-12">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 mb-6">
                   <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -388,11 +388,11 @@ export default function Services() {
       </section>
 
       {/* Intermodal Services Section */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="max-w-5xl mx-auto">
             <ScrollAnimation>
-              <div className="text-center mb-16">
+              <div className="text-center mb-8 sm:mb-12">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 mb-6">
                   <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
@@ -460,7 +460,7 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-[#1a1a1a] relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#1a1a1a] relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,

@@ -112,8 +112,7 @@ export default function About() {
                 </svg>
               </div>
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-serif font-bold text-white leading-tight tracking-tight">
-                <span className="block">About Vuyela</span>
-                <span className="block text-yellow-400">Group</span>
+                About Vuyela <span className="text-yellow-400">Group</span>
               </h1>
             </motion.div>
             <motion.div 
@@ -134,7 +133,7 @@ export default function About() {
       </section>
 
       {/* Our Story Section - Redesigned */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
@@ -149,11 +148,11 @@ export default function About() {
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
                   Our Journey
                 </h2>
-                <div className="h-1 w-24 bg-yellow-400 mx-auto mb-8"></div>
+                <div className="h-1 w-24 bg-yellow-400 mx-auto mb-6"></div>
               </div>
             </ScrollAnimation>
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {/* Story Card 1 */}
               <ScrollAnimation>
                 <div className="bg-white rounded-3xl p-8 lg:p-12 border border-gray-200 shadow-lg">
@@ -233,12 +232,12 @@ export default function About() {
       </section>
 
       {/* Leadership Section - Redesigned */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <ScrollAnimation>
-            <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 mb-6">
                 <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -247,7 +246,7 @@ export default function About() {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
                 Leadership
               </h2>
-              <div className="h-1 w-24 bg-yellow-400 mx-auto mb-8"></div>
+              <div className="h-1 w-24 bg-yellow-400 mx-auto mb-6"></div>
               <p className="text-xl text-gray-600 leading-relaxed">
                 The visionaries behind Vuyela Group, bringing decades of expertise to every decision.
               </p>
@@ -307,12 +306,12 @@ export default function About() {
       </section>
 
       {/* Meet the Team Section - All Members */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <ScrollAnimation>
-            <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 mb-6">
                 <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -321,7 +320,7 @@ export default function About() {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
                 Meet the Team
               </h2>
-              <div className="h-1 w-24 bg-yellow-400 mx-auto mb-8"></div>
+              <div className="h-1 w-24 bg-yellow-400 mx-auto mb-6"></div>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Our dedicated team of over 60 professionals is here to support your logistics needs. Reach out to the right person for your inquiry.
               </p>
@@ -329,7 +328,7 @@ export default function About() {
           </ScrollAnimation>
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
-            {teamMembers.map((member, index) => (
+            {teamMembers.filter(member => member.role !== 'Executive Director' && member.role !== 'Managing Director').map((member, index) => (
               <StaggerItem key={member.name}>
                 <motion.div 
                   className="group relative bg-white border border-gray-200 rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:border-yellow-400/50 overflow-hidden h-full"
@@ -376,13 +375,13 @@ export default function About() {
       </section>
 
       {/* Vision & Mission Section - Redesigned */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
               {/* Vision */}
               <ScrollAnimation>
-                <div className="bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a] rounded-3xl p-8 lg:p-12 border border-gray-800 shadow-2xl text-white">
+                <div className="bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a] rounded-3xl p-8 lg:p-12 border border-gray-800 shadow-2xl text-white h-full flex flex-col">
                   <div className="w-14 h-14 rounded-2xl bg-yellow-400/20 border border-yellow-400/30 flex items-center justify-center mb-6">
                     <svg className="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -392,16 +391,19 @@ export default function About() {
                   <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-6 leading-tight">
                     Our Vision
                   </h2>
-                  <div className="h-1 w-16 bg-yellow-400 mb-6"></div>
-                  <p className="text-lg text-white/90 leading-relaxed">
+                  <div className="h-1 w-16 bg-yellow-400 mb-4"></div>
+                  <p className="text-lg text-white/90 leading-relaxed mb-6">
                     To stand as the preeminent logistics partner in South Africa, driving national economic growth through decisive action, sustainable expansion, and the seamless integration of local and international supply chains. We envision a future where Vuyela Group is the pulse of African trade, contributing tangibly to the GDP of South Africa by setting the global standard for reliability in logistics and warehousing.
+                  </p>
+                  <p className="text-lg text-white/90 leading-relaxed">
+                    Our vision extends beyond transportation. We see Vuyela Group as a catalyst for economic transformation, enabling South African businesses to compete globally while strengthening regional trade networks. Through innovation, strategic partnerships, and unwavering commitment to excellence, we are building the infrastructure that connects African markets to the world, ensuring that every shipment, every delivery, and every partnership advances not just our clients&apos; success, but the prosperity of the entire region.
                   </p>
                 </div>
               </ScrollAnimation>
 
               {/* Mission */}
               <ScrollAnimation>
-                <div className="bg-white rounded-3xl p-8 lg:p-12 border-2 border-gray-200 shadow-xl">
+                <div className="bg-white rounded-3xl p-8 lg:p-12 border-2 border-gray-200 shadow-xl h-full flex flex-col">
                   <div className="w-14 h-14 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center mb-6">
                     <svg className="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -410,7 +412,7 @@ export default function About() {
                   <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6 leading-tight">
                     Our Mission
                   </h2>
-                  <div className="h-1 w-16 bg-yellow-400 mb-6"></div>
+                  <div className="h-1 w-16 bg-yellow-400 mb-4"></div>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
                     To achieve operational excellence through a customer-centric approach that prioritizes the safety, security, and efficiency of every commodity entrusted to us. We achieve this by:
                   </p>
@@ -440,10 +442,10 @@ export default function About() {
       </section>
 
       {/* Values Section - Redesigned */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <ScrollAnimation>
-            <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 mb-6">
                 <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -452,7 +454,7 @@ export default function About() {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
                 Our Values
               </h2>
-              <div className="h-1 w-24 bg-yellow-400 mx-auto mb-8"></div>
+              <div className="h-1 w-24 bg-yellow-400 mx-auto mb-6"></div>
               <p className="text-xl text-gray-600 leading-relaxed">
                 The principles that guide every decision, every delivery, and every partnership.
               </p>
@@ -519,10 +521,10 @@ export default function About() {
       </section>
 
       {/* Operational Excellence Section - Redesigned */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <ScrollAnimation>
-            <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 mb-6">
                 <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -531,7 +533,7 @@ export default function About() {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
                 Operational Excellence
               </h2>
-              <div className="h-1 w-24 bg-yellow-400 mx-auto mb-8"></div>
+              <div className="h-1 w-24 bg-yellow-400 mx-auto mb-6"></div>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Our commitment to operational excellence is reflected in our systems, processes, and hands-on approach.
               </p>
@@ -617,7 +619,7 @@ export default function About() {
       </section>
 
       {/* Environmental Consciousness Section - Redesigned */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <ScrollAnimation>
             <div className="max-w-4xl mx-auto">
@@ -630,7 +632,7 @@ export default function About() {
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
                   Environmental Responsibility
                 </h2>
-                <div className="h-1 w-24 bg-yellow-400 mx-auto mb-8"></div>
+                <div className="h-1 w-24 bg-yellow-400 mx-auto mb-6"></div>
                 <p className="text-xl text-gray-600 leading-relaxed">
                   We are committed to minimizing our environmental footprint and operating as a responsible corporate citizen.
                 </p>
@@ -666,7 +668,7 @@ export default function About() {
       </section>
 
       {/* Community Impact Section - Redesigned */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-[#1a1a1a] relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#1a1a1a] relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
@@ -678,7 +680,7 @@ export default function About() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="max-w-5xl mx-auto">
             <ScrollAnimation>
-              <div className="mb-16 text-center">
+              <div className="mb-8 sm:mb-12 text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-400/20 border border-yellow-400/30 mb-6">
                   <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -687,12 +689,12 @@ export default function About() {
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
                   Community Impact
                 </h2>
-                <div className="h-1 w-24 bg-yellow-400 mx-auto mb-8"></div>
+                <div className="h-1 w-24 bg-yellow-400 mx-auto mb-6"></div>
               </div>
             </ScrollAnimation>
 
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 lg:p-12 shadow-2xl">
-              <div className="space-y-8">
+              <div className="space-y-6">
                 <div>
                   <h3 className="text-3xl font-serif font-bold text-white mb-6">Dare to Love Initiative</h3>
                   <p className="text-white/90 leading-relaxed text-lg mb-4">
@@ -735,13 +737,13 @@ export default function About() {
       </section>
 
       {/* CTA Section - Redesigned */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollAnimation>
-              <div className="space-y-8">
+              <div className="space-y-6">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-tight">
                   Partner With Us
                 </h2>

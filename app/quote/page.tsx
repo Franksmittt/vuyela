@@ -63,7 +63,7 @@ export default function Quote() {
       </section>
 
       {/* Quote Form Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <div className="bg-gray-50 rounded-2xl p-8 lg:p-12 border border-gray-200">
             <div className="mb-8">
@@ -279,7 +279,7 @@ export default function Quote() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-gray-50">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">

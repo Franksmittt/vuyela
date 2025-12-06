@@ -59,7 +59,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Information & Form Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Contact Information */}
@@ -275,9 +275,9 @@ export default function Contact() {
       </section>
 
       {/* Meet the Team Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-gray-50">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
+          <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
               Meet the Team
             </h2>
@@ -552,7 +552,7 @@ export default function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="max-w-4xl mx-auto text-center">
             <div className="space-y-8">

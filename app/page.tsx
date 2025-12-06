@@ -129,7 +129,7 @@ export default function Home() {
       </section>
 
       {/* Introduction Section */}
-      <section className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
@@ -138,7 +138,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto">
             {/* Main Headline */}
             <ScrollAnimation>
-              <div className="text-center mb-16">
+              <div className="text-center mb-8 sm:mb-12">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 mb-6">
                   <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -155,7 +155,7 @@ export default function Home() {
             </ScrollAnimation>
 
             {/* Four Divisions Grid */}
-            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 sm:mb-12">
               <StaggerItem>
                 <motion.div 
                   className="group relative bg-white border border-gray-200 rounded-2xl p-6 lg:p-8 h-full transition-all duration-300 hover:shadow-2xl hover:border-yellow-400/50 hover:-translate-y-1"
@@ -303,11 +303,11 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
           <ScrollAnimation>
-            <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16 lg:mb-28">
+            <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
                 The Vuyela Difference
               </h2>
@@ -318,9 +318,9 @@ export default function Home() {
           </ScrollAnimation>
 
           {/* Feature Cards */}
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto items-stretch">
             {featurePillars.map((pillar) => (
-              <StaggerItem key={pillar.title}>
+              <StaggerItem key={pillar.title} className="h-full">
                 <PillarCard {...pillar} />
               </StaggerItem>
             ))}
@@ -329,11 +329,11 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-gray-50">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
           <ScrollAnimation>
-            <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16 lg:mb-28">
+            <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
                 Our Services
               </h2>
@@ -501,11 +501,11 @@ export default function Home() {
       </section>
 
       {/* Industries Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {/* Section Header */}
           <ScrollAnimation>
-            <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16 lg:mb-28">
+            <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
                 Industries We Serve
               </h2>
@@ -518,7 +518,7 @@ export default function Home() {
           {/* Industries Grid */}
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
             {/* Mining & Resources - Featured */}
-            <StaggerItem className="md:col-span-2 lg:col-span-2">
+            <StaggerItem className="md:col-span-2 lg:col-span-3">
               <motion.div 
                 className="group relative bg-[#1a1a1a] border border-[#1a1a1a] rounded-2xl p-8 lg:p-12 overflow-hidden"
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
@@ -551,50 +551,6 @@ export default function Home() {
                 <a
                   href="/industries"
                   className="inline-flex items-center text-white font-semibold group-hover:text-yellow-400 transition-colors duration-300"
-                >
-                  Learn More
-                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-              </div>
-              </motion.div>
-            </StaggerItem>
-
-            {/* Agriculture */}
-            <StaggerItem>
-              <motion.div 
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden h-full flex flex-col"
-                whileHover={{ y: -4, transition: { duration: 0.3 } }}
-              >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
-              <div className="relative flex flex-col h-full">
-                <div className="w-14 h-14 rounded-lg bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
-                  <svg className="w-7 h-7 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Agriculture</h3>
-                <p className="text-gray-600 leading-relaxed text-base mb-4">
-                  With more than 7 billion people on the planet, the demand to keep the African agricultural sector producing is challenging. We provide reliable, flexible supply chain partners to keep up with the demand.
-                </p>
-                <ul className="space-y-2 text-sm text-gray-500 mb-6 mt-auto">
-                  <li className="flex items-start">
-                    <span className="text-yellow-400 mr-2">•</span>
-                    <span>Flexible Transport Solutions</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-400 mr-2">•</span>
-                    <span>Grain & Commodities</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-400 mr-2">•</span>
-                    <span>Seasonal Demand Handling</span>
-                  </li>
-                </ul>
-                <a
-                  href="/industries"
-                  className="inline-flex items-center text-[#1a1a1a] font-semibold group-hover:text-yellow-400 transition-colors duration-300"
                 >
                   Learn More
                   <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -652,11 +608,11 @@ export default function Home() {
             {/* Manufacturing */}
             <StaggerItem>
               <motion.div 
-                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden"
+                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden h-full flex flex-col"
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
               >
               <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
-              <div className="relative">
+              <div className="relative flex flex-col h-full">
                 <div className="w-14 h-14 rounded-lg bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
                   <svg className="w-7 h-7 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -667,7 +623,7 @@ export default function Home() {
                 <p className="text-gray-600 leading-relaxed text-base mb-4">
                   Just-in-time delivery solutions for manufacturing operations. Streamlined supply chain management for production facilities.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-500 mb-6">
+                <ul className="space-y-2 text-sm text-gray-500 mb-6 mt-auto">
                   <li className="flex items-start">
                     <span className="text-yellow-400 mr-2">•</span>
                     <span>JIT Delivery</span>
@@ -694,12 +650,56 @@ export default function Home() {
               </motion.div>
             </StaggerItem>
 
+            {/* Agriculture */}
+            <StaggerItem>
+              <motion.div 
+                className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 overflow-hidden h-full flex flex-col"
+                whileHover={{ y: -4, transition: { duration: 0.3 } }}
+              >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-colors duration-300"></div>
+              <div className="relative flex flex-col h-full">
+                <div className="w-14 h-14 rounded-lg bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
+                  <svg className="w-7 h-7 text-white group-hover:text-[#1a1a1a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Agriculture</h3>
+                <p className="text-gray-600 leading-relaxed text-base mb-4">
+                  With more than 7 billion people on the planet, the demand to keep the African agricultural sector producing is challenging. We provide reliable, flexible supply chain partners to keep up with the demand.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-500 mb-6 mt-auto">
+                  <li className="flex items-start">
+                    <span className="text-yellow-400 mr-2">•</span>
+                    <span>Flexible Transport Solutions</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-yellow-400 mr-2">•</span>
+                    <span>Grain & Commodities</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-yellow-400 mr-2">•</span>
+                    <span>Seasonal Demand Handling</span>
+                  </li>
+                </ul>
+                <a
+                  href="/industries"
+                  className="inline-flex items-center text-[#1a1a1a] font-semibold group-hover:text-yellow-400 transition-colors duration-300"
+                >
+                  Learn More
+                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+              </motion.div>
+            </StaggerItem>
+
           </StaggerContainer>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-[#1a1a1a] relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#1a1a1a] relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -712,7 +712,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           {/* Section Header */}
           <ScrollAnimation>
-            <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16 lg:mb-28">
+            <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
                 Performance by Numbers
               </h2>
@@ -804,12 +804,12 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <ScrollAnimation>
             <div className="max-w-4xl mx-auto text-center">
               {/* Content */}
-              <div className="space-y-8">
+              <div className="space-y-6">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-tight">
                   Ready to Transform Your Supply Chain?
                 </h2>

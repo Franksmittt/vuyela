@@ -58,7 +58,7 @@ export function PillarCard({
   return (
     <motion.div
       ref={cardRef}
-      className="precision-card group"
+      className="precision-card group h-full flex flex-col"
       style={{ rotateX, rotateY }}
       onPointerMove={handlePointerMove}
       onPointerLeave={resetPointer}
@@ -74,7 +74,7 @@ export function PillarCard({
       {/* Grid overlay */}
       <div className="precision-card__grid" aria-hidden="true" />
 
-      <div className="precision-card__content">
+      <div className="precision-card__content flex-1 flex flex-col">
         <div className="flex items-center justify-between gap-6">
           <div className="precision-card__icon">
             {icon}
@@ -89,7 +89,7 @@ export function PillarCard({
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 flex-1">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
               Pillar
@@ -101,7 +101,7 @@ export function PillarCard({
         </div>
 
         <motion.div
-          className="precision-card__cta"
+          className="precision-card__cta mt-auto"
           whileHover={{ x: 4 }}
           transition={{ duration: 0.2 }}
         >
