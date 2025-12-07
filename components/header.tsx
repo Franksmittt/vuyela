@@ -13,20 +13,16 @@ export default function Header() {
     setMounted(true);
   }, []);
 
+  // FIXED: Simplified scroll locking prevents viewport jumps
   useEffect(() => {
     if (isMenuOpen) {
+      // Only hide overflow, don't change position
       document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
     } else {
       document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
     }
     return () => {
       document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
     };
   }, [isMenuOpen]);
 
@@ -50,7 +46,7 @@ export default function Header() {
 
   const handleToggle = (e: React.MouseEvent) => {
     e.preventDefault();
-    e.stopPropagation();
+    // Removed stopPropagation as it can sometimes block mobile touch events
     setIsMenuOpen(prev => !prev);
   };
 
@@ -64,7 +60,7 @@ export default function Header() {
         style={{ 
           position: 'sticky',
           top: 0,
-          zIndex: 999999,
+          zIndex: 50, // Standard tailwind z-index is usually enough
           width: '100%',
           backgroundColor: '#1a1a1a',
           borderBottom: '1px solid #374151'
@@ -86,12 +82,10 @@ export default function Header() {
             onClick={handleToggle}
             className="lg:hidden -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors"
             style={{ 
-              zIndex: 1000000,
+              zIndex: 60, // Just needs to be higher than header
               position: 'relative',
               cursor: 'pointer',
-              pointerEvents: 'auto',
               WebkitTapHighlightColor: 'transparent',
-              touchAction: 'manipulation'
             }}
             aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
@@ -127,56 +121,45 @@ export default function Header() {
         </nav>
       </header>
 
-      {mounted && isMenuOpen && typeof window !== 'undefined' && document.body && createPortal(
+      {/* Render Portal */}
+      {mounted && isMenuOpen && createPortal(
         <div
           id="mobile-menu"
           style={{
             position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
+            inset: 0, // Shorthand for top/right/bottom/left 0
             zIndex: 2147483647,
-            width: '100vw',
-            height: '100vh',
-            pointerEvents: 'auto',
             isolation: 'isolate'
           }}
         >
+          {/* Backdrop */}
           <div
             style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
+              position: 'absolute',
+              inset: 0,
               backgroundColor: 'rgba(0, 0, 0, 0.6)',
-              zIndex: 2147483646,
               backdropFilter: 'blur(4px)',
               WebkitBackdropFilter: 'blur(4px)',
-              pointerEvents: 'auto'
             }}
             onClick={handleClose}
             onTouchStart={handleClose}
             aria-hidden="true"
           />
           
+          {/* Menu Panel */}
           <div
             style={{
-              position: 'fixed',
+              position: 'absolute',
               top: 0,
               right: 0,
               bottom: 0,
               width: '100%',
               maxWidth: '28rem',
               backgroundColor: '#1a1a1a',
-              zIndex: 2147483647,
               overflowY: 'auto',
               boxShadow: '-4px 0 24px rgba(0, 0, 0, 0.5)',
               display: 'flex',
               flexDirection: 'column',
-              pointerEvents: 'auto',
-              WebkitOverflowScrolling: 'touch'
             }}
             role="dialog"
             aria-modal="true"
@@ -190,7 +173,6 @@ export default function Header() {
                   href="/" 
                   onClick={handleClose}
                   className="-m-1.5 p-1.5"
-                  style={{ textDecoration: 'none' }}
                 >
                   <span className="text-xl font-serif font-bold tracking-tight">
                     <span className="text-white">Vuyela</span>{' '}
@@ -201,15 +183,6 @@ export default function Header() {
                   type="button"
                   onClick={handleClose}
                   className="-m-2.5 rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    backgroundColor: 'transparent',
-                    border: 'none'
-                  }}
-                  aria-label="Close menu"
                 >
                   <X className="h-6 w-6" aria-hidden="true" />
                 </button>
