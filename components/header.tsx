@@ -9,7 +9,11 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  const toggleMenu = () => {
+  const toggleMenu = (e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     setIsMenuOpen((prev) => !prev);
   };
 
@@ -70,15 +74,14 @@ export default function Header() {
         </div>
 
         {/* Mobile menu button */}
-        <div className="flex lg:hidden relative z-[10001]">
+        <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors cursor-pointer z-[10000] relative"
-            style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors cursor-pointer z-[10000] relative pointer-events-auto"
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              toggleMenu();
+              setIsMenuOpen((prev) => !prev);
             }}
             aria-expanded={isMenuOpen}
             aria-label="Toggle menu"
@@ -125,12 +128,7 @@ export default function Header() {
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              toggleMenu();
-            }}
-            onTouchStart={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              toggleMenu();
+              setIsMenuOpen(false);
             }}
             aria-hidden="true"
           ></div>
@@ -142,11 +140,10 @@ export default function Header() {
             aria-modal="true"
             aria-label="Navigation menu"
             onClick={(e) => e.stopPropagation()}
-            onTouchStart={(e) => e.stopPropagation()}
           >
             {/* Mobile menu header */}
             <div className="flex items-center justify-between mb-8">
-                  <Link href="/" className="-m-1.5 p-1.5" onClick={toggleMenu}>
+                  <Link href="/" className="-m-1.5 p-1.5" onClick={() => setIsMenuOpen(false)}>
                     <span className="text-xl font-serif font-bold tracking-tight">
                       <span className="text-white">Vuyela</span>{' '}
                       <span className="text-yellow-400">Group</span>
@@ -155,14 +152,10 @@ export default function Header() {
               <button
                 type="button"
                 className="-m-2.5 rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors"
-                style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  toggleMenu();
-                }}
-                onTouchStart={(e) => {
-                  e.stopPropagation();
+                  setIsMenuOpen(false);
                 }}
                 aria-label="Close menu"
               >
@@ -177,7 +170,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   className="block rounded-lg px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-yellow-400 transition-colors"
-                  onClick={toggleMenu}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
@@ -189,7 +182,7 @@ export default function Header() {
               <Link
                 href="/quote"
                 className="block w-full rounded-md bg-yellow-400 px-4 py-3 text-center text-sm font-semibold text-[#1a1a1a] shadow-sm transition-colors hover:bg-yellow-300"
-                onClick={toggleMenu}
+                onClick={() => setIsMenuOpen(false)}
               >
                 Get a Quote
               </Link>
