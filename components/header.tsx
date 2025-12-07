@@ -1,13 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   // Ensure component is mounted before using portal
   useEffect(() => {
@@ -51,8 +52,13 @@ export default function Header() {
     { href: '/contact', label: 'Contact' },
   ];
 
-  const handleMenuToggle = () => {
-    setIsMenuOpen(prev => !prev);
+  const handleMenuToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsMenuOpen(prev => {
+      const newState = !prev;
+      return newState;
+    });
   };
 
   const handleMenuClose = () => {
@@ -76,11 +82,13 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="lg:hidden -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors relative z-[10001]"
+            className="lg:hidden -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors relative"
+            style={{ zIndex: 10001, position: 'relative', pointerEvents: 'auto' }}
             onClick={handleMenuToggle}
             aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-controls="mobile-menu"
+            data-menu-button="true"
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" aria-hidden="true" />
@@ -115,25 +123,29 @@ export default function Header() {
       </header>
 
       {/* Mobile menu - rendered via portal */}
-      {mounted && isMenuOpen && createPortal(
+      {mounted && typeof window !== 'undefined' && isMenuOpen && document.body && createPortal(
         <div 
+          ref={menuRef}
           id="mobile-menu"
-          className="lg:hidden fixed inset-0 z-[99999]"
-          style={{ zIndex: 99999 }}
+          className="lg:hidden fixed inset-0"
+          style={{ zIndex: 99999, position: 'fixed' }}
         >
           {/* Backdrop */}
           <div 
             className="fixed inset-0 bg-black/60 backdrop-blur-sm"
             onClick={handleMenuClose}
             aria-hidden="true"
+            style={{ zIndex: 99998 }}
           />
           
           {/* Mobile menu panel */}
           <div 
-            className="fixed inset-y-0 right-0 w-full max-w-sm overflow-y-auto bg-[#1a1a1a] shadow-2xl transform transition-transform"
+            className="fixed inset-y-0 right-0 w-full max-w-sm overflow-y-auto bg-[#1a1a1a] shadow-2xl"
             role="dialog" 
             aria-modal="true"
             aria-label="Navigation menu"
+            style={{ zIndex: 99999 }}
+            onClick={(e) => e.stopPropagation()}
           >
             <div className="px-6 py-6">
               {/* Mobile menu header */}
