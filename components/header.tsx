@@ -13,10 +13,8 @@ export default function Header() {
     setMounted(true);
   }, []);
 
-  // FIXED: Simplified scroll locking prevents viewport jumps
   useEffect(() => {
     if (isMenuOpen) {
-      // Only hide overflow, don't change position
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -44,15 +42,19 @@ export default function Header() {
     { href: '/contact', label: 'Contact' },
   ];
 
-  const handleToggle = (e: React.MouseEvent) => {
-    e.preventDefault();
-    // Removed stopPropagation as it can sometimes block mobile touch events
-    setIsMenuOpen(prev => !prev);
+  const handleToggle = () => {
+    setIsMenuOpen(prev => {
+      const newValue = !prev;
+      return newValue;
+    });
   };
 
   const handleClose = () => {
     setIsMenuOpen(false);
   };
+
+  // Render menu portal - ALWAYS render when isMenuOpen is true and we're in browser
+  const shouldRenderMenu = mounted && isMenuOpen && typeof window !== 'undefined' && document?.body;
 
   return (
     <>
@@ -60,7 +62,7 @@ export default function Header() {
         style={{ 
           position: 'sticky',
           top: 0,
-          zIndex: 50, // Standard tailwind z-index is usually enough
+          zIndex: 9999,
           width: '100%',
           backgroundColor: '#1a1a1a',
           borderBottom: '1px solid #374151'
@@ -80,12 +82,16 @@ export default function Header() {
           <button
             type="button"
             onClick={handleToggle}
+            onTouchEnd={handleToggle}
             className="lg:hidden -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors"
             style={{ 
-              zIndex: 60, // Just needs to be higher than header
+              zIndex: 10000,
               position: 'relative',
               cursor: 'pointer',
               WebkitTapHighlightColor: 'transparent',
+              touchAction: 'manipulation',
+              pointerEvents: 'auto',
+              userSelect: 'none'
             }}
             aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
@@ -121,32 +127,41 @@ export default function Header() {
         </nav>
       </header>
 
-      {/* Render Portal */}
-      {mounted && isMenuOpen && createPortal(
+      {shouldRenderMenu && createPortal(
         <div
           id="mobile-menu"
           style={{
             position: 'fixed',
-            inset: 0, // Shorthand for top/right/bottom/left 0
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
             zIndex: 2147483647,
-            isolation: 'isolate'
+            width: '100vw',
+            height: '100vh',
+            pointerEvents: 'auto',
+            isolation: 'isolate',
+            display: 'block'
           }}
         >
-          {/* Backdrop */}
           <div
             style={{
               position: 'absolute',
-              inset: 0,
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
               backgroundColor: 'rgba(0, 0, 0, 0.6)',
+              zIndex: 2147483646,
               backdropFilter: 'blur(4px)',
               WebkitBackdropFilter: 'blur(4px)',
+              pointerEvents: 'auto'
             }}
             onClick={handleClose}
-            onTouchStart={handleClose}
+            onTouchEnd={handleClose}
             aria-hidden="true"
           />
           
-          {/* Menu Panel */}
           <div
             style={{
               position: 'absolute',
@@ -156,16 +171,19 @@ export default function Header() {
               width: '100%',
               maxWidth: '28rem',
               backgroundColor: '#1a1a1a',
+              zIndex: 2147483647,
               overflowY: 'auto',
               boxShadow: '-4px 0 24px rgba(0, 0, 0, 0.5)',
               display: 'flex',
               flexDirection: 'column',
+              pointerEvents: 'auto',
+              WebkitOverflowScrolling: 'touch'
             }}
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
             onClick={(e) => e.stopPropagation()}
-            onTouchStart={(e) => e.stopPropagation()}
+            onTouchEnd={(e) => e.stopPropagation()}
           >
             <div style={{ padding: '1.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem' }}>
@@ -173,6 +191,7 @@ export default function Header() {
                   href="/" 
                   onClick={handleClose}
                   className="-m-1.5 p-1.5"
+                  style={{ textDecoration: 'none' }}
                 >
                   <span className="text-xl font-serif font-bold tracking-tight">
                     <span className="text-white">Vuyela</span>{' '}
@@ -182,7 +201,18 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={handleClose}
+                  onTouchEnd={handleClose}
                   className="-m-2.5 rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    pointerEvents: 'auto'
+                  }}
+                  aria-label="Close menu"
                 >
                   <X className="h-6 w-6" aria-hidden="true" />
                 </button>
@@ -194,7 +224,9 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={handleClose}
+                    onTouchEnd={handleClose}
                     className="block rounded-lg px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-yellow-400 transition-colors"
+                    style={{ pointerEvents: 'auto' }}
                   >
                     {link.label}
                   </Link>
@@ -205,7 +237,9 @@ export default function Header() {
                 <Link
                   href="/quote"
                   onClick={handleClose}
+                  onTouchEnd={handleClose}
                   className="block w-full rounded-md bg-yellow-400 px-4 py-3 text-center text-sm font-semibold text-[#1a1a1a] shadow-sm transition-colors hover:bg-yellow-300"
+                  style={{ pointerEvents: 'auto' }}
                 >
                   Get a Quote
                 </Link>
