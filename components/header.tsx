@@ -1,46 +1,42 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
 
-  // Ensure component is mounted before using portal
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
     } else {
       document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
     }
     return () => {
       document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
     };
   }, [isMenuOpen]);
 
-  // Handle Escape key to close menu
   useEffect(() => {
     if (!isMenuOpen) return;
-    
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsMenuOpen(false);
-      }
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsMenuOpen(false);
     };
-
     document.addEventListener('keydown', handleEscape);
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-    };
+    return () => document.removeEventListener('keydown', handleEscape);
   }, [isMenuOpen]);
 
   const navLinks = [
@@ -52,24 +48,30 @@ export default function Header() {
     { href: '/contact', label: 'Contact' },
   ];
 
-  const handleMenuToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleToggle = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsMenuOpen(prev => {
-      const newState = !prev;
-      return newState;
-    });
+    setIsMenuOpen(prev => !prev);
   };
 
-  const handleMenuClose = () => {
+  const handleClose = () => {
     setIsMenuOpen(false);
   };
 
   return (
     <>
-      <header className="sticky top-0 z-[9999] w-full border-b border-gray-800 bg-[#1a1a1a] backdrop-blur-md">
+      <header 
+        style={{ 
+          position: 'sticky',
+          top: 0,
+          zIndex: 999999,
+          width: '100%',
+          backgroundColor: '#1a1a1a',
+          borderBottom: '1px solid #374151'
+        }}
+        className="border-b border-gray-800 bg-[#1a1a1a] backdrop-blur-md"
+      >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-20" aria-label="Global">
-          {/* Logo */}
           <div className="flex items-center lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
               <span className="text-xl md:text-2xl font-serif font-bold tracking-tight">
@@ -79,16 +81,21 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile menu button */}
           <button
             type="button"
-            className="lg:hidden -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors relative"
-            style={{ zIndex: 10001, position: 'relative', pointerEvents: 'auto' }}
-            onClick={handleMenuToggle}
+            onClick={handleToggle}
+            className="lg:hidden -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors"
+            style={{ 
+              zIndex: 1000000,
+              position: 'relative',
+              cursor: 'pointer',
+              pointerEvents: 'auto',
+              WebkitTapHighlightColor: 'transparent',
+              touchAction: 'manipulation'
+            }}
             aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-controls="mobile-menu"
-            data-menu-button="true"
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" aria-hidden="true" />
@@ -97,7 +104,6 @@ export default function Header() {
             )}
           </button>
 
-          {/* Desktop navigation */}
           <div className="hidden lg:flex lg:gap-x-10">
             {navLinks.map((link) => (
               <Link
@@ -110,7 +116,6 @@ export default function Header() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link
               href="/quote"
@@ -122,35 +127,71 @@ export default function Header() {
         </nav>
       </header>
 
-      {/* Mobile menu - rendered via portal */}
-      {mounted && typeof window !== 'undefined' && isMenuOpen && document.body && createPortal(
-        <div 
-          ref={menuRef}
+      {mounted && isMenuOpen && typeof window !== 'undefined' && document.body && createPortal(
+        <div
           id="mobile-menu"
-          className="lg:hidden fixed inset-0"
-          style={{ zIndex: 99999, position: 'fixed' }}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 2147483647,
+            width: '100vw',
+            height: '100vh',
+            pointerEvents: 'auto',
+            isolation: 'isolate'
+          }}
         >
-          {/* Backdrop */}
-          <div 
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
-            onClick={handleMenuClose}
+          <div
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.6)',
+              zIndex: 2147483646,
+              backdropFilter: 'blur(4px)',
+              WebkitBackdropFilter: 'blur(4px)',
+              pointerEvents: 'auto'
+            }}
+            onClick={handleClose}
+            onTouchStart={handleClose}
             aria-hidden="true"
-            style={{ zIndex: 99998 }}
           />
           
-          {/* Mobile menu panel */}
-          <div 
-            className="fixed inset-y-0 right-0 w-full max-w-sm overflow-y-auto bg-[#1a1a1a] shadow-2xl"
-            role="dialog" 
+          <div
+            style={{
+              position: 'fixed',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              width: '100%',
+              maxWidth: '28rem',
+              backgroundColor: '#1a1a1a',
+              zIndex: 2147483647,
+              overflowY: 'auto',
+              boxShadow: '-4px 0 24px rgba(0, 0, 0, 0.5)',
+              display: 'flex',
+              flexDirection: 'column',
+              pointerEvents: 'auto',
+              WebkitOverflowScrolling: 'touch'
+            }}
+            role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
-            style={{ zIndex: 99999 }}
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={(e) => e.stopPropagation()}
           >
-            <div className="px-6 py-6">
-              {/* Mobile menu header */}
-              <div className="flex items-center justify-between mb-8">
-                <Link href="/" className="-m-1.5 p-1.5" onClick={handleMenuClose}>
+            <div style={{ padding: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem' }}>
+                <Link 
+                  href="/" 
+                  onClick={handleClose}
+                  className="-m-1.5 p-1.5"
+                  style={{ textDecoration: 'none' }}
+                >
                   <span className="text-xl font-serif font-bold tracking-tight">
                     <span className="text-white">Vuyela</span>{' '}
                     <span className="text-yellow-400">Group</span>
@@ -158,34 +199,40 @@ export default function Header() {
                 </Link>
                 <button
                   type="button"
+                  onClick={handleClose}
                   className="-m-2.5 rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors"
-                  onClick={handleMenuClose}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    backgroundColor: 'transparent',
+                    border: 'none'
+                  }}
                   aria-label="Close menu"
                 >
                   <X className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
               
-              {/* Navigation links */}
               <nav className="space-y-1">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={handleClose}
                     className="block rounded-lg px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-yellow-400 transition-colors"
-                    onClick={handleMenuClose}
                   >
                     {link.label}
                   </Link>
                 ))}
               </nav>
               
-              {/* CTA Button */}
               <div className="mt-8 pt-6 border-t border-gray-800">
                 <Link
                   href="/quote"
+                  onClick={handleClose}
                   className="block w-full rounded-md bg-yellow-400 px-4 py-3 text-center text-sm font-semibold text-[#1a1a1a] shadow-sm transition-colors hover:bg-yellow-300"
-                  onClick={handleMenuClose}
                 >
                   Get a Quote
                 </Link>
