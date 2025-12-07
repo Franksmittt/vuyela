@@ -10,7 +10,7 @@ export default function Header() {
   const [mounted, setMounted] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
   };
 
   // Prevent body scroll when menu is open
@@ -70,13 +70,19 @@ export default function Header() {
         </div>
 
         {/* Mobile menu button */}
-        <div className="flex lg:hidden">
+        <div className="flex lg:hidden relative z-[10001]">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors cursor-pointer z-[10000] relative"
-            onClick={toggleMenu}
+            style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              toggleMenu();
+            }}
             aria-expanded={isMenuOpen}
             aria-label="Toggle menu"
+            aria-controls="mobile-menu"
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" aria-hidden="true" />
@@ -112,11 +118,20 @@ export default function Header() {
 
       {/* Mobile menu - rendered via portal to ensure it's above everything */}
       {mounted && isMenuOpen && createPortal(
-        <div className="lg:hidden fixed inset-0 z-[99999]">
+        <div className="lg:hidden fixed inset-0 z-[99999]" id="mobile-menu">
           {/* Backdrop */}
           <div 
             className="fixed inset-0 bg-black/50 backdrop-blur-sm" 
-            onClick={toggleMenu}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              toggleMenu();
+            }}
+            onTouchStart={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              toggleMenu();
+            }}
             aria-hidden="true"
           ></div>
           
@@ -127,6 +142,7 @@ export default function Header() {
             aria-modal="true"
             aria-label="Navigation menu"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={(e) => e.stopPropagation()}
           >
             {/* Mobile menu header */}
             <div className="flex items-center justify-between mb-8">
@@ -139,7 +155,15 @@ export default function Header() {
               <button
                 type="button"
                 className="-m-2.5 rounded-md p-2.5 text-white min-w-[44px] min-h-[44px] hover:bg-gray-800 transition-colors"
-                onClick={toggleMenu}
+                style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  toggleMenu();
+                }}
+                onTouchStart={(e) => {
+                  e.stopPropagation();
+                }}
                 aria-label="Close menu"
               >
                 <X className="h-6 w-6" aria-hidden="true" />
