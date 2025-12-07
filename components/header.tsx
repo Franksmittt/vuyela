@@ -25,6 +25,23 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
+  // Handle Escape key to close menu (WCAG 2.1.1 Keyboard)
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isMenuOpen]);
+
   // Ensure component is mounted before using portal
   useEffect(() => {
     setMounted(true);
