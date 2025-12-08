@@ -45,10 +45,6 @@ export default function MobileNav({ navLinks }: MobileNavProps) {
     setIsMenuOpen(false);
   };
 
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <>
       {/* Mobile Header - Logo and Hamburger */}
@@ -84,8 +80,8 @@ export default function MobileNav({ navLinks }: MobileNavProps) {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      {isMenuOpen && typeof window !== 'undefined' && document?.body && createPortal(
+      {/* Mobile Menu Overlay - Only render when mounted and menu is open */}
+      {mounted && isMenuOpen && typeof window !== 'undefined' && document?.body && createPortal(
         <div
           id="mobile-menu"
           className="fixed inset-0 z-[99999] lg:hidden"
