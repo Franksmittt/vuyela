@@ -5,9 +5,25 @@ const nextConfig: NextConfig = {
   /* config options here */
   // Explicitly set the project root to silence multiple lockfile warning
   outputFileTracingRoot: path.join(__dirname),
+  
+  // Optimize compiler options
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'], // Keep errors and warnings
+    } : false,
+  },
+  
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [],
+    // Reduce image optimization memory usage
+    minimumCacheTTL: 60,
+  },
+  
+  // Experimental optimizations
+  experimental: {
+    // Optimize package imports
+    optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
   /**
    * React Strict Mode
