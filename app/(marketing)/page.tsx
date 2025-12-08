@@ -1,11 +1,47 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ScrollAnimation, StaggerContainer, StaggerItem } from '@/components/scroll-animation';
 import { PillarCard } from '@/components/pillar-card';
 import Link from 'next/link';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const heroSlides = [
+    {
+      id: 1,
+      image: '/images/hero_1.png',
+      title: 'Locally Invested.',
+      titleHighlight: 'Globally Connected.',
+      description: 'From the heart of Elandsfontein to the ports of the world, Vuyela Group is the custodian of your supply chain. We deliver precision logistics, bulk handling, and energy solutions that keep South Africa moving.',
+    },
+    {
+      id: 2,
+      image: '/images/hero_2.png',
+      title: 'Precision Logistics.',
+      titleHighlight: 'Reliable Delivery.',
+      description: 'With 98.5% on-time-in-full performance, our fleet of side tippers, tautliners, and specialized equipment ensures your cargo reaches its destination safely and on schedule.',
+    },
+    {
+      id: 3,
+      image: '/images/hero_3.png',
+      title: 'Mining Expertise.',
+      titleHighlight: 'Bulk Solutions.',
+      description: '20+ years of experience in the mining sector. From chrome and manganese to iron ore, we provide comprehensive pit-to-port logistics and warehousing solutions.',
+    },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % 3);
+    }, 6000); // Change slide every 6 seconds
+
+    return () => clearInterval(timer);
+  }, []);
+
   const complianceBadges = [
     { title: 'B-BBEE', subtitle: 'Level 1' },
     { title: 'NBCRFLI', subtitle: 'Compliant' },
@@ -56,76 +92,120 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1a1a1a] via-[#1a1a1a] to-[#2a2a2a] overflow-hidden py-16 sm:py-0">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-16 sm:py-0">
+        {/* Hero Background Images - Carousel */}
+        <AnimatePresence mode="wait">
+          {heroSlides.map((slide, index) => (
+            index === currentSlide && (
+              <motion.div
+                key={slide.id}
+                className="absolute inset-0 z-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+              >
+                <Image
+                  src={slide.image}
+                  alt={`Vuyela Group Hero ${slide.id}`}
+                  fill
+                  priority={index === 0}
+                  className="object-cover"
+                  quality={90}
+                />
+              </motion.div>
+            )
+          ))}
+        </AnimatePresence>
+
+        {/* Overlay - 30% opacity */}
+        <div className="absolute inset-0 z-[1] bg-gradient-to-br from-[#1a1a1a]/30 via-[#1a1a1a]/30 to-[#2a2a2a]/30"></div>
+        
         {/* Subtle background pattern/texture */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 z-[1] opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
             backgroundSize: '40px 40px'
           }}></div>
         </div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl -mr-48 -mt-48 z-[1]"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl -ml-48 -mb-48 z-[1]"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="max-w-5xl mx-auto text-center space-y-6 py-8">
-            {/* Main Headline */}
-            <motion.div 
-              className="space-y-3"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight tracking-tight">
-                <motion.span 
-                  className="block"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.1 }}
-                >
-                  Locally Invested.
-                </motion.span>
-                <motion.span 
-                  className="block text-yellow-400"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                  Globally Connected.
-                </motion.span>
-              </h1>
-            </motion.div>
+            {/* Slide Content */}
+            <AnimatePresence mode="wait">
+              {heroSlides.map((slide, index) => (
+                index === currentSlide && (
+                  <motion.div
+                    key={slide.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -30 }}
+                    transition={{ duration: 0.6 }}
+                    className="space-y-6"
+                  >
+                    {/* Main Headline */}
+                    <div className="space-y-3">
+                      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight tracking-tight" style={{
+                        textShadow: '0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 6px rgba(0, 0, 0, 0.6)'
+                      }}>
+                        <span className="block">
+                          {slide.title}
+                        </span>
+                        <span className="block text-yellow-400" style={{
+                          textShadow: '0 4px 12px rgba(0, 0, 0, 0.9), 0 2px 6px rgba(0, 0, 0, 0.7)'
+                        }}>
+                          {slide.titleHighlight}
+                        </span>
+                      </h1>
+                    </div>
 
-            {/* Subheadline */}
-            <motion.div 
-              className="space-y-3 max-w-3xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <p className="text-lg sm:text-xl md:text-2xl text-white/90 font-light leading-snug">
-                From the heart of Elandsfontein to the ports of the world, Vuyela Group is the custodian of your supply chain. We deliver precision logistics, bulk handling, and energy solutions that keep South Africa moving.
-              </p>
-            </motion.div>
+                    {/* Subheadline */}
+                    <div className="space-y-3 max-w-3xl mx-auto">
+                      <p className="text-lg sm:text-xl md:text-2xl text-white/90 font-light leading-snug" style={{
+                        textShadow: '0 2px 8px rgba(0, 0, 0, 0.8), 0 1px 4px rgba(0, 0, 0, 0.6)'
+                      }}>
+                        {slide.description}
+                      </p>
+                    </div>
 
-            {/* CTA */}
-            <motion.div 
-              className="pt-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <motion.a
-                href="/quote"
-                className="inline-flex items-center justify-center rounded-xl bg-yellow-400 px-10 py-4 text-lg font-semibold text-[#1a1a1a] shadow-lg transition-all hover:bg-yellow-300 hover:shadow-xl hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-400"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
-              >
-                Get a Quote
-              </motion.a>
-            </motion.div>
+                    {/* CTA */}
+                    <div className="pt-4">
+                      <motion.a
+                        href="/quote"
+                        className="inline-flex items-center justify-center rounded-xl bg-yellow-400 px-10 py-4 text-lg font-semibold text-[#1a1a1a] shadow-lg transition-all hover:bg-yellow-300 hover:shadow-xl hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-400"
+                        style={{
+                          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3)'
+                        }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.98 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        Get a Quote
+                      </motion.a>
+                    </div>
+                  </motion.div>
+                )
+              ))}
+            </AnimatePresence>
           </div>
+        </div>
+
+        {/* Navigation Dots */}
+        <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-2 sm:gap-3">
+          {heroSlides.map((slide, index) => (
+            <button
+              key={slide.id}
+              onClick={() => setCurrentSlide(index)}
+              className={`transition-all duration-300 rounded-full min-w-[8px] min-h-[8px] ${
+                index === currentSlide
+                  ? 'w-10 sm:w-12 h-2 bg-yellow-400'
+                  : 'w-2 h-2 bg-white/50 hover:bg-white/70'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </section>
 

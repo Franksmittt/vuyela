@@ -73,9 +73,9 @@ export default function Industries() {
               </div>
             </ScrollAnimation>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 items-stretch">
               <ScrollAnimation>
-                <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-lg">
+                <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-lg h-full flex flex-col">
                   <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Key Commodities</h3>
                   <p className="text-gray-700 leading-relaxed mb-6">
                     We specialize in the movement of minerals including Chrome (Concentrate & ROM), Manganese, Iron Ore, and Coal. Our expertise extends to bagged cargo and bulk mineral handling.
@@ -106,7 +106,7 @@ export default function Industries() {
               </ScrollAnimation>
 
               <ScrollAnimation>
-                <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-lg">
+                <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-lg h-full flex flex-col">
                   <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Pit-to-Port Solutions</h3>
                   <p className="text-gray-700 leading-relaxed mb-6">
                     From managing rail sidings to optimizing road haulage for export, we ensure that your commodities move efficiently, minimizing demurrage and maximizing export potential. Shipping mainly to Asia, we can facilitate exports to any country.
@@ -219,9 +219,9 @@ export default function Industries() {
               </div>
             </ScrollAnimation>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 items-stretch">
               <ScrollAnimation>
-                <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-lg">
+                <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-lg h-full flex flex-col">
                   <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Flexible Transport Solutions</h3>
                   <p className="text-gray-700 leading-relaxed mb-6">
                     We understand the seasonality and sensitivity of agricultural products. Whether moving fertilizer to the farm or crops to the port, we provide the flexible transport solutions necessary to keep up with global demand.
@@ -244,7 +244,7 @@ export default function Industries() {
               </ScrollAnimation>
 
               <ScrollAnimation>
-                <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-lg">
+                <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-lg h-full flex flex-col">
                   <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Grain & Commodities</h3>
                   <p className="text-gray-700 leading-relaxed mb-6">
                     Bulk grain transport and commodity logistics. Specialized handling for agricultural bulk commodities with proper storage and handling protocols to maintain quality throughout the supply chain.
@@ -269,7 +269,7 @@ export default function Industries() {
 
             <ScrollAnimation>
               <div className="bg-white rounded-3xl p-8 lg:p-12 border-2 border-gray-200 shadow-lg">
-                <h3 className="text-2xl font-serif font-bold text-gray-900 mb-6">Agricultural Expertise</h3>
+                <h3 className="text-2xl font-serif font-bold text-gray-900 mb-6 text-center">Agricultural Expertise</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="text-center">
                     <div className="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center mx-auto mb-4">
@@ -373,7 +373,7 @@ export default function Industries() {
 
             <ScrollAnimation>
               <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 lg:p-12 border-2 border-gray-200">
-                <h3 className="text-2xl font-serif font-bold text-gray-900 mb-6">Construction Capabilities</h3>
+                <h3 className="text-2xl font-serif font-bold text-gray-900 mb-6 text-center">Construction Capabilities</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   <div className="text-center">
                     <div className="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center mx-auto mb-4">
@@ -486,7 +486,7 @@ export default function Industries() {
 
             <ScrollAnimation>
               <div className="bg-white rounded-3xl p-8 lg:p-12 border-2 border-gray-200 shadow-lg">
-                <h3 className="text-2xl font-serif font-bold text-gray-900 mb-6">Manufacturing Advantages</h3>
+                <h3 className="text-2xl font-serif font-bold text-gray-900 mb-6 text-center">Manufacturing Advantages</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   <div className="text-center">
                     <div className="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center mx-auto mb-4">
