@@ -47,13 +47,51 @@ const staticRoutes: Array<{ url: string; changefreq: string; priority: number; l
 /**
  * Fetch dynamic pages from Sanity CMS
  * 
- * DISABLED FOR NOW - Will re-enable when Sanity is set up
+ * This queries Sanity for all published pages and returns them
+ * in a format suitable for the sitemap.
  */
 async function fetchSanityPages(): Promise<
   Array<{ url: string; changefreq: string; priority: number; lastModified?: Date }>
 > {
-  // Sanity disabled for faster builds
-  return [];
+  // Check if Sanity is configured
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+    // Return empty array if Sanity is not configured
+    return [];
+  }
+
+  try {
+    // Dynamically import Sanity client only if configured
+    const { client } = await import('@/lib/sanity.client');
+    
+    // Check if client is available
+    if (!client) {
+      return [];
+    }
+    
+    // Query Sanity for all published pages
+    // Adjust this query based on your Sanity schema
+    const query = `*[_type == "page" && defined(slug.current)] {
+      "slug": slug.current,
+      _updatedAt
+    }`;
+
+    const pages = await client.fetch<Array<{ slug: string; _updatedAt: string }>>(query, {}, {
+      next: {
+        revalidate: 3600, // Revalidate every hour
+      },
+    });
+
+    return pages.map((page) => ({
+      url: `/${page.slug}`,
+      changefreq: 'monthly' as const,
+      priority: 0.7,
+      lastModified: page._updatedAt ? new Date(page._updatedAt) : undefined,
+    }));
+  } catch (error) {
+    console.error('Error fetching Sanity pages:', error);
+    // Return empty array if Sanity is not configured or fails
+    return [];
+  }
 }
 
 /**

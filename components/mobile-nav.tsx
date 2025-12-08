@@ -17,8 +17,6 @@ export default function MobileNav({ navLinks }: MobileNavProps) {
     setMounted(true);
   }, []);
 
-  // Always render the mobile header, even during SSR
-
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
