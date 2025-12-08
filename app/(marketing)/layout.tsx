@@ -1,5 +1,4 @@
 import Header from '@/components/header';
-import Footer from '@/components/footer';
 
 export default function MarketingLayout({
   children,
@@ -9,12 +8,7 @@ export default function MarketingLayout({
   return (
     <>
       <Header />
-      {/* Note: main tag is in root layout, so we use div here */}
-      <div className="min-h-screen">
-        {children}
-      </div>
-      <Footer />
+      {children}
     </>
   );
 }
-
